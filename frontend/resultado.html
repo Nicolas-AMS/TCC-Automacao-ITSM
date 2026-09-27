@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Relatório - ITSM</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Relatório de diagnóstico</h1>
+    <div id="relatorio" class="card"></div>
+    <button id="btn-abrir-ticket" class="btn">Confirmar abertura de chamado</button>
+  </main>
+  <script src="js/api.js"></script>
+  <script>
+    // Preenche o relatorio a partir do que foi salvo pelo diagnostico.js
+    const dados = JSON.parse(localStorage.getItem('ultimoDiagnostico') || '{}');
+    document.getElementById('relatorio').innerHTML = `
+      <p><strong>Categoria:</strong> ${dados.categoria || '-'}</p>
+      <p><strong>Prioridade:</strong> ${dados.prioridade || '-'}</p>
+      <p><strong>Resumo:</strong> ${dados.resumo || '-'}</p>
+    `;
+    document.getElementById('btn-abrir-ticket').addEventListener('click', async () => {
+      await api.post('/chamados', dados);
+      alert('Chamado criado com sucesso!');
+      window.location.href = 'chamados.html';
+    });
+  </script>
+</body>
+</html>

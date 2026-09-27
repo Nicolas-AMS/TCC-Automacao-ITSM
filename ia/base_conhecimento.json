@@ -1,0 +1,20 @@
+[
+  {
+    "problema": "Computador lento",
+    "sintomas": ["Lentidão geral", "Demora para abrir programas", "Travamentos"],
+    "possiveisCausas": ["Pouca memória RAM disponível", "Disco cheio", "Muitos programas iniciando junto com o Windows"],
+    "procedimentosRecomendados": ["Verificar uso de RAM e disco", "Desativar programas de inicialização desnecessários", "Executar limpeza de disco"]
+  },
+  {
+    "problema": "Sem acesso à internet",
+    "sintomas": ["Não carrega páginas", "Sem conexão Wi-Fi", "Conexão instável"],
+    "possiveisCausas": ["Problema no roteador", "Configuração de rede incorreta", "Falha no provedor de internet"],
+    "procedimentosRecomendados": ["Reiniciar roteador", "Testar em outro dispositivo", "Verificar configuração de IP"]
+  },
+  {
+    "problema": "Erro ao abrir programa",
+    "sintomas": ["Programa fecha sozinho", "Mensagem de erro ao abrir", "Tela travada"],
+    "possiveisCausas": ["Instalação corrompida", "Incompatibilidade com o sistema", "Falta de atualização"],
+    "procedimentosRecomendados": ["Reinstalar o programa", "Verificar atualizações do sistema", "Checar logs de erro"]
+  }
+]

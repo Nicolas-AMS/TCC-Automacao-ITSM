@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Abrir chamado - ITSM</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Abrir novo chamado</h1>
+    <form id="form-chamado" class="card">
+      <label>Título</label>
+      <input type="text" id="titulo" required>
+      <label>Descreva o problema</label>
+      <textarea id="descricao" rows="5" required></textarea>
+      <button type="submit" class="btn">Iniciar diagnóstico com IA</button>
+    </form>
+  </main>
+  <script src="js/api.js"></script>
+  <script src="js/chamado.js"></script>
+</body>
+</html>

@@ -1,0 +1,2 @@
+.cards-resumo { display: flex; gap: 16px; margin-top: 24px; }
+.cards-resumo .card { flex: 1; text-align: center; }

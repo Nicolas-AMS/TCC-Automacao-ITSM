@@ -1,0 +1,55 @@
+* { box-sizing: border-box; }
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  margin: 0;
+  background: #f4f6f8;
+  color: #1c2733;
+}
+.container { max-width: 900px; margin: 0 auto; padding: 24px; }
+.center { text-align: center; padding-top: 80px; }
+.card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  max-width: 420px;
+  margin: 0 auto;
+}
+label { display: block; margin-top: 12px; margin-bottom: 4px; font-weight: 600; font-size: 14px; }
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #cfd8e3;
+  border-radius: 6px;
+  font-size: 14px;
+}
+.btn {
+  display: inline-block;
+  margin-top: 18px;
+  background: #2f6fed;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: none;
+}
+.btn:hover { background: #2559c7; }
+.erro { color: #c0392b; font-size: 13px; }
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: #101828;
+  color: #fff;
+}
+.topbar nav a { color: #cbd5e1; margin-left: 16px; text-decoration: none; }
+table { width: 100%; border-collapse: collapse; margin-top: 20px; background: #fff; }
+th, td { padding: 10px 12px; border-bottom: 1px solid #e5e9ef; text-align: left; font-size: 14px; }
+.chat { background: #fff; border-radius: 10px; padding: 16px; min-height: 240px; margin-bottom: 12px; }
+.chat p { margin: 6px 0; }
+.chat .ia { color: #2f6fed; }
+.chat .usuario { color: #1c2733; text-align: right; }
+.linha { display: flex; gap: 8px; }
