@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS solicitacoes_contato (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(150) NOT NULL,
+  email VARCHAR(150) NOT NULL,
+  telefone VARCHAR(30),
+  empresa VARCHAR(150),
+  assunto VARCHAR(150) NOT NULL,
+  mensagem TEXT NOT NULL,
+  criado_em DATETIME DEFAULT CURRENT_TIMESTAMP
+);

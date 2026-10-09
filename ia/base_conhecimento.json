@@ -2,19 +2,181 @@
   {
     "problema": "Computador lento",
     "sintomas": ["Lentidão geral", "Demora para abrir programas", "Travamentos"],
-    "possiveisCausas": ["Pouca memória RAM disponível", "Disco cheio", "Muitos programas iniciando junto com o Windows"],
-    "procedimentosRecomendados": ["Verificar uso de RAM e disco", "Desativar programas de inicialização desnecessários", "Executar limpeza de disco"]
+    "possiveisCausas": ["Pouca memória RAM disponível", "Disco cheio ou degradado", "Muitos programas iniciando com o sistema", "Processo consumindo recursos"],
+    "procedimentosRecomendados": ["Verificar uso de CPU, memória e disco", "Identificar processos com consumo elevado", "Liberar espaço de forma segura", "Revisar programas de inicialização autorizados"]
+  },
+  {
+    "problema": "Uso elevado de CPU",
+    "sintomas": ["Ventoinha acelerada", "Computador lento", "CPU próxima de 100% por muito tempo"],
+    "possiveisCausas": ["Aplicativo ou processo travado", "Varredura ou atualização em andamento", "Malware", "Resfriamento inadequado"],
+    "procedimentosRecomendados": ["Identificar o processo no monitor de tarefas", "Verificar se há atualização ou varredura legítima em andamento", "Reiniciar o aplicativo afetado", "Executar verificação de segurança aprovada e conferir a ventilação"]
+  },
+  {
+    "problema": "Memória RAM insuficiente",
+    "sintomas": ["Aplicativos travando ao alternar entre eles", "Uso de memória muito alto", "Alertas de pouca memória"],
+    "possiveisCausas": ["Muitos aplicativos ou abas abertos", "Aplicativo com vazamento de memória", "Memória instalada insuficiente para a carga de trabalho"],
+    "procedimentosRecomendados": ["Conferir os processos que mais consomem memória", "Fechar aplicativos não utilizados", "Atualizar ou reiniciar o aplicativo com consumo anormal", "Solicitar avaliação de expansão de memória se necessário"]
+  },
+  {
+    "problema": "Disco quase cheio",
+    "sintomas": ["Aviso de pouco espaço", "Falha ao salvar arquivos", "Atualizações não conseguem instalar"],
+    "possiveisCausas": ["Arquivos temporários ou downloads acumulados", "Logs ou caches grandes", "Arquivos pessoais ocupando o disco", "Partição do sistema pequena"],
+    "procedimentosRecomendados": ["Conferir o espaço por pasta e unidade", "Remover apenas arquivos temporários identificados por ferramenta confiável", "Arquivar arquivos pessoais conforme a política da empresa", "Não apagar arquivos do sistema; solicitar aumento de espaço se necessário"]
+  },
+  {
+    "problema": "Disco com erros ou desempenho baixo",
+    "sintomas": ["Arquivos demoram para abrir", "Erros de leitura ou gravação", "Ruídos incomuns em disco mecânico", "Sistema congela durante acessos ao disco"],
+    "possiveisCausas": ["Unidade de armazenamento degradada", "Sistema de arquivos com erros", "Cabo ou conexão com mau contato", "Pouco espaço livre"],
+    "procedimentosRecomendados": ["Priorizar cópia de segurança dos dados importantes", "Verificar a saúde da unidade com ferramenta aprovada", "Registrar mensagens de erro", "Acionar suporte para substituição ou reparo; não insistir em testes se houver ruído ou falha física"]
+  },
+  {
+    "problema": "Sistema operacional não inicia",
+    "sintomas": ["Tela preta ao ligar", "Mensagem de dispositivo de inicialização ausente", "Sistema reinicia antes de carregar"],
+    "possiveisCausas": ["Falha na unidade de armazenamento", "Ordem de inicialização alterada", "Atualização ou arquivos de inicialização danificados", "Problema de energia ou hardware"],
+    "procedimentosRecomendados": ["Anotar a mensagem exibida e quando começou", "Desconectar periféricos não essenciais e tentar novamente", "Verificar cabos e alimentação sem abrir o equipamento", "Encaminhar ao suporte para recuperação; evitar redefinição ou formatação antes de preservar os dados"]
+  },
+  {
+    "problema": "Tela azul, reinicializações ou desligamentos inesperados",
+    "sintomas": ["Tela azul", "Reinicialização sem aviso", "Desligamento durante o uso", "Erros recorrentes após atualização"],
+    "possiveisCausas": ["Driver ou atualização incompatível", "Superaquecimento", "Falha de memória ou armazenamento", "Fonte ou bateria instável"],
+    "procedimentosRecomendados": ["Registrar código do erro, horário e atividade em andamento", "Verificar temperatura e eventos recentes", "Desconectar periféricos adicionados recentemente", "Solicitar análise de hardware e drivers se o problema se repetir"]
+  },
+  {
+    "problema": "Superaquecimento ou ventoinha ruidosa",
+    "sintomas": ["Carcaça muito quente", "Ventoinha sempre no máximo", "Queda de desempenho", "Desligamento sob carga"],
+    "possiveisCausas": ["Entradas de ar obstruídas", "Poeira ou falha de ventoinha", "Uso intenso de CPU ou GPU", "Ambiente sem ventilação adequada"],
+    "procedimentosRecomendados": ["Usar o equipamento em superfície rígida e desobstruir as saídas de ar", "Verificar temperatura e carga de processos", "Desligar se houver calor extremo ou cheiro de queimado", "Encaminhar para limpeza ou reparo; não abrir o equipamento sem autorização"]
+  },
+  {
+    "problema": "Computador não liga ou apresenta falha de energia",
+    "sintomas": ["Sem luz ou sinal ao pressionar o botão", "Liga e desliga imediatamente", "Fonte ou carregador muito quente"],
+    "possiveisCausas": ["Tomada, cabo ou carregador com defeito", "Bateria descarregada ou degradada", "Fonte de alimentação defeituosa", "Falha na placa ou botão de energia"],
+    "procedimentosRecomendados": ["Testar tomada e cabo em condições seguras", "Conferir indicadores do carregador e conexões externas", "Interromper o uso se houver cheiro, fumaça ou aquecimento anormal", "Solicitar avaliação técnica sem abrir a fonte ou o equipamento"]
+  },
+  {
+    "problema": "Bateria descarrega rapidamente ou não carrega",
+    "sintomas": ["Autonomia muito curta", "Carga não passa de determinado percentual", "Notebook desliga fora da tomada"],
+    "possiveisCausas": ["Bateria degradada", "Carregador ou cabo inadequado", "Aplicativos consumindo muita energia", "Configuração ou firmware de energia"],
+    "procedimentosRecomendados": ["Confirmar se o carregador é o aprovado para o modelo", "Verificar relatório de saúde da bateria e consumo", "Testar outra tomada", "Solicitar substituição da bateria se a saúde estiver degradada ou houver inchaço; não utilizar bateria estufada"]
   },
   {
     "problema": "Sem acesso à internet",
     "sintomas": ["Não carrega páginas", "Sem conexão Wi-Fi", "Conexão instável"],
-    "possiveisCausas": ["Problema no roteador", "Configuração de rede incorreta", "Falha no provedor de internet"],
-    "procedimentosRecomendados": ["Reiniciar roteador", "Testar em outro dispositivo", "Verificar configuração de IP"]
+    "possiveisCausas": ["Problema no roteador ou ponto de acesso", "Configuração de rede incorreta", "Falha do provedor", "Adaptador de rede desativado"],
+    "procedimentosRecomendados": ["Verificar se outros dispositivos também estão sem conexão", "Conferir conexão Wi-Fi ou cabo e estado do adaptador", "Testar acesso a serviços internos e externos", "Registrar horário e mensagens e acionar a equipe de rede ou provedor"]
   },
   {
-    "problema": "Erro ao abrir programa",
+    "problema": "Wi-Fi fraco ou desconectando",
+    "sintomas": ["Sinal baixo", "Quedas frequentes", "Conexão funciona perto do roteador, mas não em outro local"],
+    "possiveisCausas": ["Distância ou obstáculos", "Interferência de rádio", "Ponto de acesso congestionado", "Driver ou adaptador sem fio desatualizado"],
+    "procedimentosRecomendados": ["Comparar conexão em outro local e dispositivo", "Verificar intensidade do sinal e horário das quedas", "Reconectar à rede corporativa correta", "Acionar a equipe de rede para avaliar cobertura e canal; não alterar equipamentos corporativos sem autorização"]
+  },
+  {
+    "problema": "Conexão cabeada não funciona",
+    "sintomas": ["Ícone de rede desconectada", "Sem luz na porta de rede", "Conexão funciona via Wi-Fi, mas não por cabo"],
+    "possiveisCausas": ["Cabo ou porta com defeito", "Porta de switch desativada", "Adaptador Ethernet desabilitado", "Configuração de rede ou autenticação incorreta"],
+    "procedimentosRecomendados": ["Conferir encaixe e testar outro cabo aprovado", "Verificar se há luz de link na porta", "Testar outra porta autorizada", "Solicitar verificação da porta do switch e das configurações de rede"]
+  },
+  {
+    "problema": "Acesso a sites falha por DNS",
+    "sintomas": ["Mensagem de servidor não encontrado", "Serviços por endereço IP funcionam, mas nomes não", "Falha em vários navegadores"],
+    "possiveisCausas": ["Servidor DNS indisponível", "Configuração DNS incorreta", "Cache DNS desatualizado", "VPN ou proxy interferindo"],
+    "procedimentosRecomendados": ["Verificar se a falha ocorre em mais de um site e dispositivo", "Conferir VPN, proxy e configuração de rede aprovados", "Registrar os domínios e horários afetados", "Encaminhar à equipe de rede; não substituir DNS corporativo por servidores não autorizados"]
+  },
+  {
+    "problema": "VPN não conecta ou desconecta",
+    "sintomas": ["Erro de autenticação", "Conexão cai após alguns minutos", "Recursos internos indisponíveis fora do escritório"],
+    "possiveisCausas": ["Credenciais ou autenticação multifator", "Cliente VPN desatualizado", "Internet instável", "Certificado ou serviço VPN indisponível"],
+    "procedimentosRecomendados": ["Confirmar conexão com a internet antes da VPN", "Registrar código e horário do erro", "Verificar autenticação e validade da conta sem compartilhar senhas", "Acionar suporte para validar cliente, certificado e serviço"]
+  },
+  {
+    "problema": "Impressora não imprime",
+    "sintomas": ["Trabalhos ficam na fila", "Impressora aparece offline", "Documento não sai ou apresenta erro"],
+    "possiveisCausas": ["Impressora desligada ou sem papel", "Fila de impressão travada", "Conexão de rede interrompida", "Driver ou impressora selecionada incorretamente"],
+    "procedimentosRecomendados": ["Conferir energia, papel, alertas e conexão", "Confirmar a impressora selecionada e o estado da fila", "Enviar uma página de teste conforme a política local", "Solicitar suporte para fila compartilhada, driver ou equipamento"]
+  },
+  {
+    "problema": "Teclado, mouse ou periférico USB não funciona",
+    "sintomas": ["Dispositivo não é reconhecido", "Teclas ou cliques falham", "Conexão USB intermitente"],
+    "possiveisCausas": ["Cabo, bateria ou porta com defeito", "Driver ausente", "Dispositivo sem compatibilidade", "Hub USB sem alimentação"],
+    "procedimentosRecomendados": ["Verificar bateria, cabo e encaixe", "Testar outra porta ou outro dispositivo autorizado", "Reiniciar o aplicativo que depende do periférico", "Solicitar substituição ou instalação de driver aprovado se persistir"]
+  },
+  {
+    "problema": "Monitor sem imagem ou com imagem incorreta",
+    "sintomas": ["Tela preta", "Mensagem sem sinal", "Imagem piscando ou resolução inadequada"],
+    "possiveisCausas": ["Monitor sem energia", "Cabo ou entrada selecionada incorretamente", "Modo de exibição ou resolução incompatível", "Driver ou adaptador gráfico com falha"],
+    "procedimentosRecomendados": ["Conferir energia, brilho, entrada e conexões de vídeo", "Testar cabo ou monitor conhecido e autorizado", "Verificar modo de exibição do sistema", "Acionar suporte se houver artefatos, piscadas persistentes ou falha gráfica"]
+  },
+  {
+    "problema": "Sem áudio ou microfone",
+    "sintomas": ["Sem som", "Microfone não capta voz", "Som sai pelo dispositivo errado", "Ruído ou áudio intermitente"],
+    "possiveisCausas": ["Dispositivo de saída ou entrada selecionado incorretamente", "Volume silenciado", "Permissão do aplicativo", "Driver ou headset com defeito"],
+    "procedimentosRecomendados": ["Verificar volume, mudo e dispositivo selecionado", "Testar gravação ou reprodução em outro aplicativo aprovado", "Conferir permissões de áudio e conexão do headset", "Atualizar driver por canal corporativo ou solicitar teste do periférico"]
+  },
+  {
+    "problema": "Câmera não funciona",
+    "sintomas": ["Aplicativo não encontra câmera", "Imagem preta", "Câmera ocupada ou bloqueada"],
+    "possiveisCausas": ["Tampa física fechada", "Permissão negada", "Outro aplicativo usando a câmera", "Driver ou dispositivo com falha"],
+    "procedimentosRecomendados": ["Verificar tampa, chave física e conexão", "Fechar outros aplicativos que possam usar a câmera", "Conferir permissões do aplicativo e do sistema", "Solicitar suporte para driver ou falha persistente"]
+  },
+  {
+    "problema": "Programa fecha, trava ou apresenta erro",
     "sintomas": ["Programa fecha sozinho", "Mensagem de erro ao abrir", "Tela travada"],
-    "possiveisCausas": ["Instalação corrompida", "Incompatibilidade com o sistema", "Falta de atualização"],
-    "procedimentosRecomendados": ["Reinstalar o programa", "Verificar atualizações do sistema", "Checar logs de erro"]
+    "possiveisCausas": ["Instalação ou perfil corrompido", "Incompatibilidade com o sistema", "Falta de atualização", "Dependência ou recurso insuficiente"],
+    "procedimentosRecomendados": ["Registrar mensagem de erro, horário e ações anteriores", "Reiniciar o aplicativo e verificar atualizações aprovadas", "Testar se ocorre com outro usuário ou arquivo, quando permitido", "Solicitar reparo ou reinstalação pelo suporte e preservar dados do aplicativo"]
+  },
+  {
+    "problema": "Instalação ou atualização de programa falha",
+    "sintomas": ["Instalador retorna erro", "Atualização fica pendente", "Programa solicita permissões administrativas"],
+    "possiveisCausas": ["Falta de espaço", "Permissão insuficiente", "Pacote incompatível ou corrompido", "Serviço de atualização indisponível"],
+    "procedimentosRecomendados": ["Registrar código e etapa do erro", "Conferir espaço e requisitos do aplicativo", "Usar somente instaladores e canais aprovados", "Solicitar instalação ao suporte quando houver necessidade de privilégio administrativo"]
+  },
+  {
+    "problema": "Sistema ou aplicativo não atualiza",
+    "sintomas": ["Atualização fica em loop", "Download não inicia", "Código de erro de atualização"],
+    "possiveisCausas": ["Conexão ou serviço de atualização indisponível", "Pouco espaço", "Reinicialização pendente", "Política corporativa ou dependência com falha"],
+    "procedimentosRecomendados": ["Anotar código do erro e versão instalada", "Verificar conexão, espaço e reinicialização pendente", "Aguardar janela de manutenção definida pela organização", "Encaminhar ao suporte sem desativar controles de segurança"]
+  },
+  {
+    "problema": "Não consegue entrar no sistema ou conta bloqueada",
+    "sintomas": ["Senha recusada", "Conta bloqueada", "Falha de autenticação multifator", "Perfil temporário"],
+    "possiveisCausas": ["Credencial expirada ou digitada incorretamente", "Bloqueio por tentativas", "Problema de sincronização ou domínio", "Fator de autenticação indisponível"],
+    "procedimentosRecomendados": ["Conferir layout do teclado e usuário informado", "Registrar a mensagem sem compartilhar senha ou código de autenticação", "Usar o processo oficial de recuperação de conta", "Acionar suporte para desbloqueio ou validação de perfil"]
+  },
+  {
+    "problema": "Arquivos ou pastas compartilhadas inacessíveis",
+    "sintomas": ["Acesso negado", "Unidade de rede desconectada", "Pasta não encontrada"],
+    "possiveisCausas": ["Permissão insuficiente", "VPN ou rede indisponível", "Caminho alterado", "Serviço de arquivos indisponível"],
+    "procedimentosRecomendados": ["Confirmar caminho e conexão à rede corporativa", "Verificar se outras pessoas autorizadas conseguem acessar", "Registrar o recurso e a mensagem de erro", "Solicitar validação de permissões ao responsável; não contornar controles de acesso"]
+  },
+  {
+    "problema": "Navegador apresenta erro ou comportamento inesperado",
+    "sintomas": ["Páginas não carregam", "Navegador fecha", "Pop-ups ou redirecionamentos incomuns", "Certificado inválido"],
+    "possiveisCausas": ["Cache ou extensão com falha", "Configuração de proxy ou DNS", "Certificado expirado ou inspeção corporativa", "Software malicioso"],
+    "procedimentosRecomendados": ["Anotar endereço e mensagem sem ignorar alertas de certificado", "Testar outro navegador aprovado", "Desabilitar extensões apenas conforme política local", "Reportar pop-ups suspeitos e não inserir credenciais em páginas inesperadas"]
+  },
+  {
+    "problema": "Suspeita de malware ou incidente de segurança",
+    "sintomas": ["Alerta do antivírus", "Arquivos alterados ou inacessíveis", "Pop-ups suspeitos", "Atividade de conta não reconhecida"],
+    "possiveisCausas": ["Arquivo ou link malicioso", "Aplicativo não autorizado", "Credencial comprometida", "Falso positivo de ferramenta de segurança"],
+    "procedimentosRecomendados": ["Não abrir anexos, links ou arquivos suspeitos", "Não desativar nem contornar o antivírus", "Registrar alerta e horário e comunicar imediatamente a equipe de segurança", "Seguir o procedimento de resposta a incidentes antes de desconectar, apagar arquivos ou alterar senhas"]
+  },
+  {
+    "problema": "Backup não executa ou restauração de arquivos é necessária",
+    "sintomas": ["Falha de cópia de segurança", "Arquivos ausentes ou excluídos", "Erro ao restaurar versão anterior"],
+    "possiveisCausas": ["Destino sem espaço ou indisponível", "Permissões ou conexão interrompidas", "Política de retenção", "Falha no agente de backup"],
+    "procedimentosRecomendados": ["Identificar arquivos, local e período desejado", "Verificar o estado do agente e a conexão com o destino aprovado", "Não sobrescrever nem salvar dados recuperados sobre os originais", "Solicitar restauração ao suporte e preservar evidências de exclusão ou corrupção"]
+  },
+  {
+    "problema": "Data, hora ou fuso horário incorretos",
+    "sintomas": ["Relógio atrasado", "Erro de certificado", "Falha de login ou sincronização"],
+    "possiveisCausas": ["Sincronização de horário indisponível", "Fuso horário configurado incorretamente", "Bateria interna degradada", "Política de domínio não aplicada"],
+    "procedimentosRecomendados": ["Conferir fuso horário e configuração automática", "Verificar conexão com a rede corporativa", "Registrar se o horário se perde após desligar", "Solicitar sincronização de domínio ou avaliação técnica; não alterar horário para contornar controles"]
+  },
+  {
+    "problema": "Desempenho baixo apenas em um aplicativo ou serviço",
+    "sintomas": ["Demora concentrada em um programa", "Outros aplicativos funcionam normalmente", "Erro apenas em uma função ou sistema interno"],
+    "possiveisCausas": ["Serviço remoto lento ou indisponível", "Arquivo ou perfil específico com problema", "Conflito de versão ou extensão", "Permissão ou dependência do aplicativo"],
+    "procedimentosRecomendados": ["Comparar com outro usuário, arquivo ou estação quando autorizado", "Anotar função, horário, mensagem e frequência", "Verificar comunicados de indisponibilidade", "Encaminhar à equipe proprietária do serviço com evidências reproduzíveis"]
   }
 ]

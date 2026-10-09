@@ -65,22 +65,29 @@ O projeto tem como objetivo melhorar o processo de abertura de chamados ITSM atr
 
 Entre os objetivos estão:
 
-Reduzir informações incompletas nos chamados;
-Automatizar a coleta de informações técnicas;
-Auxiliar no diagnóstico inicial;
-Organizar os dados coletados;
-Gerar informações mais completas para a equipe de suporte;
-Facilitar a análise do chamado;
-Integrar o sistema com uma plataforma ITSM através de API REST.
+- Reduzir informações incompletas nos chamados;
+- Automatizar a coleta de informações técnicas;
+- Auxiliar no diagnóstico inicial;
+- Organizar os dados coletados;
+- Gerar informações mais completas para a equipe de suporte;
+- Facilitar a análise do chamado;
+- Integrar o sistema com uma plataforma ITSM através de API REST.
+
 📂 Estrutura do projeto
+
+```text
 TCC-Automacao-ITSM/
 │
 ├── agente/
 │   ├── monitor.py
-│   ├── coleta_cpu.py
-│   ├── coleta_ram.py
-│   ├── coleta_disco.py
-│   └── ...
+│   ├── envio.py
+│   └── coleta/
+│       ├── cpu.py
+│       ├── disco.py
+│       ├── processos.py
+│       ├── ram.py
+│       ├── rede.py
+│       └── sistema.py
 │
 ├── backend/
 │   ├── controllers/
@@ -92,10 +99,13 @@ TCC-Automacao-ITSM/
 ├── docs/
 │   ├── arquitetura.md
 │   ├── api.md
+│   ├── banco-de-dados.md
+│   ├── requisitos.md
 │   └── testes.md
 │
 ├── frontend/
-│   ├── css/
+│   ├── assets/
+│   │   └── css/
 │   ├── js/
 │   ├── index.html
 │   ├── login.html
@@ -111,8 +121,11 @@ TCC-Automacao-ITSM/
 ├── package.json
 ├── package-lock.json
 └── README.md
+```
+
 🚀 Como executar
-1. Backend
+
+### 1. Backend
 
 Instale as dependências:
 
@@ -123,6 +136,12 @@ Crie o arquivo .env utilizando o .env.example como referência e preencha as inf
 Configure o banco de dados utilizando:
 
 backend/database/schema.sql
+    Implementar autenticação real com hash de senha e JWT;
+    Conectar `iaService.js` a uma API de Inteligência Artificial;
+    Popular `base_conhecimento.json` com problemas reais de suporte;
+    Implementar `itsmService.js` com a API da plataforma ITSM escolhida;
+    Realizar testes automatizados;
+    Finalizar a documentação do projeto.
 
 Depois execute o servidor:
 
@@ -131,16 +150,9 @@ npm run dev
 O servidor será iniciado em:
 
 http://localhost:3000
-Caso o npm run dev não esteja configurado
+O comando `npm run dev` já está configurado no projeto.
 
-Instale o Nodemon:
-
-npm install --save-dev nodemon
-
-Depois execute:
-
-npx nodemon backend/server.js
-Windows PowerShell
+#### Windows PowerShell
 
 Caso o PowerShell bloqueie a execução de scripts do npm, pode ser necessário utilizar:
 
@@ -148,7 +160,7 @@ Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 
 Essa configuração é específica do ambiente Windows e não é necessária em todos os computadores.
 
-🌐 2. Frontend
+### 2. Frontend
 
 O frontend está localizado na pasta:
 
@@ -163,19 +175,15 @@ no navegador ou utilize uma extensão como Live Server no Visual Studio Code.
 O frontend utiliza a API do backend em:
 
 http://localhost:3000/api
-🐍 3. Agente Python
+### 3. Agente Python
 
-Entre na pasta do agente:
+Na raiz do repositório, instale as dependências listadas no projeto:
 
-cd agente
+pip install -r agente/requirements.txt
 
-Instale as dependências:
+Execute o agente a partir da raiz do repositório:
 
-pip install psutil requests
-
-Execute o agente:
-
-python monitor.py
+python agente/monitor.py
 
 O agente é responsável pela coleta de informações técnicas da máquina.
 
@@ -193,7 +201,7 @@ As credenciais de acesso ao banco devem ser configuradas no arquivo .env.
 
 A Inteligência Artificial faz parte da proposta de diagnóstico assistido do sistema.
 
-As informações fornecidas pelo usuário podem ser combinadas com os dados técnicos coletados pelo agente Python para auxiliar na elaboração de um diagnóstico mais estruturado.
+Atualmente, o diagnóstico conversa com o usuário e o agente envia os dados técnicos separadamente ao backend. A combinação desses dados no diagnóstico ainda precisa ser implementada.
 
 Exemplo:
 
@@ -245,26 +253,27 @@ Chamado
 
 A integração final depende da plataforma ITSM escolhida e dos endpoints disponibilizados por sua API.
 
-📚 Documentação
+## 📚 Documentação
 
-A documentação complementar do projeto está disponível na pasta:
+A documentação complementar está disponível em `docs/`:
 
-docs/
-Documentos
-docs/arquitetura.md — Arquitetura do sistema
-docs/api.md — Endpoints da API
-docs/testes.md — Testes do sistema
+- [arquitetura.md](docs/arquitetura.md): arquitetura do sistema
+- [api.md](docs/api.md): endpoints da API
+- [banco-de-dados.md](docs/banco-de-dados.md): estrutura do banco de dados
+- [requisitos.md](docs/requisitos.md): requisitos do projeto
+- [testes.md](docs/testes.md): testes do sistema
 🚧 Status do projeto
 
 🟡 Em desenvolvimento
 
-Próximos passos
- Implementar autenticação real com hash de senha e JWT
- Conectar iaService.js a uma API de Inteligência Artificial
- Popular base_conhecimento.json com problemas reais de suporte
- Implementar itsmService.js com a API da plataforma ITSM escolhida
- Realizar testes automatizados
- Finalizar a documentação do projeto
+Próximos passos:
+
+- Integrar os dados coletados pelo agente ao diagnóstico e ao chamado correspondente;
+- Configurar e validar a integração com uma API de Inteligência Artificial;
+- Configurar a plataforma ITSM escolhida e persistir o identificador do ticket externo;
+- Ampliar a base de conhecimento com problemas reais de suporte;
+- Criar e executar testes automatizados;
+- Revisar e finalizar a documentação do projeto.
 🔐 Segurança
 
 Informações sensíveis não devem ser enviadas para o GitHub.

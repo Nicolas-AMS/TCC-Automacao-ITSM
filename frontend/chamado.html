@@ -2,21 +2,65 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="assets/logo-itsm.svg">
   <title>Abrir chamado - ITSM</title>
-  <link rel="stylesheet" href="css/style.css">
+  <script src="js/auth.js?v=20261008-nav-pattern"></script>
+  <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css?v=20261008-nav-pattern">
 </head>
 <body>
-  <main class="container">
-    <h1>Abrir novo chamado</h1>
-    <form id="form-chamado" class="card">
-      <label>Título</label>
-      <input type="text" id="titulo" required>
-      <label>Descreva o problema</label>
-      <textarea id="descricao" rows="5" required></textarea>
-      <button type="submit" class="btn">Iniciar diagnóstico com IA</button>
-    </form>
+  <nav class="navbar navbar-expand-lg site-navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand site-brand" href="index.html" aria-label="ITSM Service Desk - Início">
+        <img src="assets/logo-itsm.svg" alt="">
+        <span>ITSM Service Desk</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navigation" aria-controls="main-navigation" aria-expanded="false" aria-label="Abrir ou fechar navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="main-navigation">
+        <ul class="navbar-nav site-nav-links me-auto">
+          <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="chamados.html">Meus chamados</a></li>
+          <li class="nav-item"><a class="nav-link" href="diagnostico.html">Diagnóstico</a></li>
+        </ul>
+        <div class="site-nav-actions">
+          <a class="site-sign-in" href="index.html">Página inicial</a>
+          <a class="site-cta" href="fale-conosco.html">Fale conosco</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <main class="workspace-main">
+    <section class="workspace-heading">
+      <div>
+        <span class="section-kicker">NOVO ATENDIMENTO</span>
+        <h1>Como podemos ajudar?</h1>
+        <p>Conte um pouco sobre o que aconteceu. Em seguida, o diagnóstico inteligente ajuda a organizar sua solicitação.</p>
+      </div>
+    </section>
+    <section class="request-layout">
+      <form id="form-chamado" class="card request-card">
+        <div class="request-card-heading"><span class="request-step">01</span><div><h2>Descreva sua solicitação</h2><p>Preencha os campos para continuar.</p></div></div>
+        <label for="titulo">Título do chamado</label>
+        <input type="text" id="titulo" placeholder="Ex.: Não consigo acessar meu e-mail" required>
+        <label for="descricao">O que está acontecendo?</label>
+        <textarea id="descricao" rows="6" placeholder="Descreva o problema, quando começou e qualquer detalhe que possa ajudar..." required></textarea>
+        <div class="request-note"><span>✦</span><p>O diagnóstico assistido vai ajudar a entender melhor o problema.</p></div>
+        <button type="submit" class="home-button home-button-primary">Continuar para diagnóstico <span aria-hidden="true">→</span></button>
+      </form>
+      <aside class="request-aside">
+        <div class="request-aside-icon">✦</div>
+        <span class="section-kicker">DICA RÁPIDA</span>
+        <h2>Mais detalhes ajudam a resolver mais rápido.</h2>
+        <p>Se puder, informe mensagens de erro, o sistema afetado e o que você já tentou fazer.</p>
+        <div class="request-aside-footer"><span class="status-dot"></span> Suas informações ficam no chamado.</div>
+      </aside>
+    </section>
   </main>
   <script src="js/api.js"></script>
   <script src="js/chamado.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

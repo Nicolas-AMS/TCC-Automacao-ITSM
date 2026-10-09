@@ -2,24 +2,63 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="assets/logo-itsm.svg">
   <title>Chamados - ITSM</title>
-  <link rel="stylesheet" href="css/style.css">
+  <script src="js/auth.js?v=20261008-nav-pattern"></script>
+  <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css?v=20261008-nav-pattern">
   <link rel="stylesheet" href="css/chamados.css">
 </head>
 <body>
-  <header class="topbar">
-    <h1>Meus chamados</h1>
-    <a href="chamado.html" class="btn">+ Novo chamado</a>
-  </header>
-  <main class="container">
-    <table id="tabela-chamados">
-      <thead>
-        <tr><th>#</th><th>Título</th><th>Status</th><th>Prioridade</th><th>Data</th></tr>
-      </thead>
-      <tbody></tbody>
-    </table>
+  <nav class="navbar navbar-expand-lg site-navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand site-brand" href="index.html" aria-label="ITSM Service Desk - Início">
+        <img src="assets/logo-itsm.svg" alt="">
+        <span>ITSM Service Desk</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navigation" aria-controls="main-navigation" aria-expanded="false" aria-label="Abrir ou fechar navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="main-navigation">
+        <ul class="navbar-nav site-nav-links me-auto">
+          <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="chamados.html">Meus chamados</a></li>
+          <li class="nav-item"><a class="nav-link" href="diagnostico.html">Diagnóstico</a></li>
+        </ul>
+        <div class="site-nav-actions">
+          <a class="site-sign-in" href="index.html">Página inicial</a>
+          <a class="site-cta" href="fale-conosco.html">Fale conosco</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <main class="workspace-main">
+    <section class="workspace-heading">
+      <div>
+        <span class="section-kicker">CENTRAL DE ATENDIMENTO</span>
+        <h1>Meus chamados</h1>
+        <p>Acompanhe suas solicitações e consulte as atualizações da equipe.</p>
+      </div>
+      <a href="chamado.html" class="home-button home-button-primary">＋ Novo chamado</a>
+    </section>
+    <section class="ticket-list-panel">
+      <div class="ticket-list-heading">
+        <div><h2>Suas solicitações</h2><p>Chamados registrados na sua conta</p></div>
+        <span class="ticket-list-mark">ITSM</span>
+      </div>
+      <div class="table-responsive">
+        <table id="tabela-chamados">
+          <thead>
+            <tr><th>#</th><th>Título</th><th>Status</th><th>Prioridade</th><th>Data</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
   </main>
   <script src="js/api.js"></script>
   <script src="js/chamados.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

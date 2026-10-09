@@ -1,28 +1,168 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <title>Cadastro - ITSM</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/cadastro.css">
-</head>
-<body>
-  <div class="container center">
-    <form id="form-cadastro" class="card">
-      <h2>Cadastrar</h2>
-      <label>Nome</label>
-      <input type="text" id="Nome" required>
-      <label>E-mail</label>
-      <input type="email" id="email" required>
-      <label>Senha</label>
-      <input type="password" id="senha" required>
-      <button type="submit" class="btn">Cadastrar</button>
-      <br>
-      <a href="login.html">Já tenho login</a>
-      <p id="erro-login" class="erro"></p>
-    </form>
-  </div>
-  <script src="js/api.js"></script>
-  <script src="js/cadastro.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="assets/logo-itsm.svg" />
+    <title>Cadastro - ITSM</title>
+    <script src="js/auth.js?v=20261008-nav-pattern"></script>
+    <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css?v=20261008-nav-pattern" />
+    <link rel="stylesheet" href="css/cadastro.css?v=20261008-6" />
+  </head>
+  <body>
+    <nav class="navbar site-navbar auth-navbar">
+      <div class="container-fluid">
+        <a class="navbar-brand site-brand" href="index.html"
+          ><img src="assets/logo-itsm.svg" alt="" /><span
+            >ITSM Service Desk</span
+          ></a
+        >
+      </div>
+    </nav>
+    <main class="signup-main">
+      <section class="signup-layout" aria-labelledby="signup-title">
+        <div class="signup-intro">
+          <span class="signup-eyebrow">ITSM SERVICE DESK</span>
+          <h1 id="signup-title">
+            Crie sua conta e simplifique seu atendimento de TI.
+          </h1>
+          <p class="signup-lead">
+            Um único acesso para registrar solicitações e acompanhar cada etapa
+            do suporte.
+          </p>
+          <ul class="signup-benefits">
+            <li>
+              <span aria-hidden="true">✓</span
+              ><span
+                ><strong>Um só lugar para suas solicitações</strong
+                ><small
+                  >Registre e acompanhe seus chamados com facilidade.</small
+                ></span
+              >
+            </li>
+            <li>
+              <span aria-hidden="true">⌁</span
+              ><span
+                ><strong>Atendimento mais organizado</strong
+                ><small
+                  >Compartilhe os detalhes para ajudar a equipe a
+                  resolver.</small
+                ></span
+              >
+            </li>
+            <li>
+              <span aria-hidden="true">↗</span
+              ><span
+                ><strong>Acompanhe o progresso</strong
+                ><small
+                  >Consulte o status dos seus atendimentos quando quiser.</small
+                ></span
+              >
+            </li>
+          </ul>
+          <p class="signup-help">
+            Já precisa de suporte?
+            <a href="fale-conosco.html"
+              >Fale com nossa equipe <span aria-hidden="true">→</span></a
+            >
+          </p>
+        </div>
+
+        <form id="form-cadastro" class="card auth-card signup-card">
+          <span class="section-kicker">COMECE POR AQUI</span>
+          <h2>Crie sua conta ITSM</h2>
+          <p class="auth-description">Preencha seus dados para começar.</p>
+
+          <label for="Nome"
+            >Nome completo <span aria-hidden="true">*</span></label
+          >
+          <input
+            type="text"
+            id="Nome"
+            name="nome"
+            autocomplete="name"
+            maxlength="150"
+            placeholder="Como devemos chamar você?"
+            required
+          />
+
+          <label for="email">E-mail <span aria-hidden="true">*</span></label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            autocomplete="email"
+            maxlength="150"
+            placeholder="voce@empresa.com"
+            required
+          />
+
+          <label for="senha"
+            >Crie uma senha <span aria-hidden="true">*</span></label
+          >
+          <div class="password-field">
+            <input
+              type="password"
+              id="senha"
+              name="senha"
+              autocomplete="new-password"
+              placeholder="Digite sua senha"
+              required
+            />
+            <button
+              type="button"
+              class="toggle-password"
+              aria-label="Mostrar senha"
+              data-target="senha"
+            >
+              Mostrar
+            </button>
+          </div>
+
+          <label for="confirmarSenha"
+            >Confirme sua senha <span aria-hidden="true">*</span></label
+          >
+          <div class="password-field">
+            <input
+              type="password"
+              id="confirmarSenha"
+              name="confirmarSenha"
+              autocomplete="new-password"
+              placeholder="Digite a senha novamente"
+              required
+            />
+            <button
+              type="button"
+              class="toggle-password"
+              aria-label="Mostrar confirmação de senha"
+              data-target="confirmarSenha"
+            >
+              Mostrar
+            </button>
+          </div>
+
+          <p class="signup-terms">
+            Ao criar uma conta, você poderá abrir chamados e acompanhar as
+            respostas da equipe de TI.
+          </p>
+          <button type="submit" class="home-button home-button-primary">
+            Criar conta <span aria-hidden="true">→</span>
+          </button>
+          <p class="auth-switch">
+            Já tem uma conta? <a href="login.html">Entrar</a>
+          </p>
+          <p
+            id="erro-login"
+            class="erro signup-message"
+            role="status"
+            aria-live="polite"
+          ></p>
+        </form>
+      </section>
+    </main>
+    <script src="js/api.js"></script>
+    <script src="js/cadastro.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

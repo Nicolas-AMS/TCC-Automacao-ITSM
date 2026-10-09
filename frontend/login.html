@@ -2,25 +2,37 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="assets/logo-itsm.svg">
   <title>Login - ITSM</title>
-  <link rel="stylesheet" href="css/style.css">
+  <script src="js/auth.js?v=20261008-nav-pattern"></script>
+  <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css?v=20261008-nav-pattern">
   <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-  <div class="container center">
-    <form id="form-login" class="card">
-      <h2>Entrar</h2>
-      <label>E-mail</label>
-      <input type="email" id="email" required>
-      <label>Senha</label>
-      <input type="password" id="senha" required>
-      <button type="submit" class="btn">Entrar</button>
-      <br>
-      <a href="cadastro.html">Cadastrar</a>
+  <nav class="navbar site-navbar auth-navbar">
+    <div class="container-fluid"><a class="navbar-brand site-brand" href="index.html"><img src="assets/logo-itsm.svg" alt=""><span>ITSM Service Desk</span></a></div>
+  </nav>
+  <main class="auth-main">
+    <form id="form-login" class="card auth-card">
+      <span class="section-kicker">BEM-VINDO DE VOLTA</span>
+      <h1>Entre na sua conta.</h1>
+      <p class="auth-description">Acesse seus chamados e acompanhe o atendimento.</p>
+      <label for="email">E-mail</label>
+      <input type="email" id="email" autocomplete="email" required>
+      <label for="senha">Senha</label>
+      <div class="password-field">
+        <input type="password" id="senha" autocomplete="current-password" required>
+        <button type="button" class="toggle-password" aria-label="Mostrar senha" data-target="senha">Mostrar</button>
+      </div>
+      <button type="submit" class="home-button home-button-primary">Entrar</button>
+      <p class="auth-switch">Ainda não tem cadastro? <a href="cadastro.html">Criar conta</a></p>
       <p id="erro-login" class="erro"></p>
     </form>
-  </div>
+  </main>
   <script src="js/api.js"></script>
   <script src="js/login.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

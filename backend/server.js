@@ -6,6 +6,7 @@ const path = require('path'); // <-- ADICIONADO: Necessário para manipular cami
 const authRoutes = require('./routes/auth');
 const usuariosRoutes = require('./routes/usuarios');
 const chamadosRoutes = require('./routes/chamados');
+const contatosRoutes = require('./routes/contatos');
 const diagnosticoRoutes = require('./routes/diagnostico');
 const agenteRoutes = require('./routes/agente');
 const errorMiddleware = require('./middleware/errorMiddleware');
@@ -16,11 +17,13 @@ app.use(express.json());
 
 // <-- ADICIONADO: Serve os arquivos da pasta frontend como raiz do site
 app.use(express.static(path.join(__dirname, '../frontend')));
+app.use('/vendor/bootstrap', express.static(path.join(__dirname, '../node_modules/bootstrap/dist')));
 
 // Rotas da API
 app.use('/api/auth', authRoutes);
 app.use('/api/usuarios', usuariosRoutes);
 app.use('/api/chamados', chamadosRoutes);
+app.use('/api/contatos', contatosRoutes);
 app.use('/api/diagnostico', diagnosticoRoutes);
 app.use('/api/agente', agenteRoutes);
 

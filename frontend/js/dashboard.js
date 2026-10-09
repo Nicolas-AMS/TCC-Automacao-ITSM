@@ -10,6 +10,8 @@ async function carregarResumo() {
     `;
   } catch (err) {
     console.error('Erro ao carregar resumo:', err);
+    const resumo = document.getElementById('resumo');
+    resumo.innerHTML = '<p class="dashboard-load-error">Não foi possível carregar o resumo dos chamados. Tente novamente em instantes.</p>';
   }
 }
-carregarResumo();
+if (exigirLogin()) carregarResumo();

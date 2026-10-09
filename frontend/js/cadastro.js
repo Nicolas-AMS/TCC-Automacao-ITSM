@@ -1,27 +1,45 @@
 document.getElementById('form-cadastro').addEventListener('submit', async (e) => {
   e.preventDefault();
-  
-  // Captura os elementos exatamente pelos IDs do seu HTML
-  const nome = document.getElementById('Nome').value; // 'Nome' com N maiúsculo
-  const email = document.getElementById('email').value;
+
+  const nome = document.getElementById('Nome').value.trim();
+  const email = document.getElementById('email').value.trim();
   const senha = document.getElementById('senha').value;
-  const erroEl = document.getElementById('erro-login'); // ID usado no seu HTML para erros
-  
-  // Limpa mensagens de erro anteriores
+  const confirmarSenha = document.getElementById('confirmarSenha').value;
+  const erroEl = document.getElementById('erro-login');
+
   erroEl.textContent = '';
 
-  try {
-    // Envia os dados para a rota que criamos no seu backend Express
-    await api.post('/auth/register', { nome, email, senha });
-    
-    // Alerta de sucesso antes de redirecionar
-    alert('Cadastro realizado com sucesso!');
-    
-    // Redireciona o usuário para a página de login
-    window.location.href = 'login.html'; 
-    
-  } catch (err) {
-    // Busca a propriedade .mensagem configurada no seu usuarioController
-    erroEl.textContent = err.response?.data?.mensagem || err.message || 'Erro ao realizar cadastro.';
+  if (!nome || !email || !senha || !confirmarSenha) {
+    erroEl.textContent = 'Preencha todos os campos.';
+    return;
   }
+
+  if (senha !== confirmarSenha) {
+    erroEl.textContent = 'As senhas não conferem.';
+    return;
+  }
+
+  try {
+    await api.post('/auth/register', { nome, email, senha, confirmarSenha });
+    erroEl.dataset.type = 'success';
+    erroEl.textContent = 'Cadastro realizado com sucesso! Redirecionando para o login...';
+    window.setTimeout(() => {
+      window.location.href = 'login.html';
+    }, 900);
+  } catch (err) {
+    erroEl.removeAttribute('data-type');
+    erroEl.textContent = err.message || 'Erro ao realizar cadastro.';
+  }
+});
+
+document.querySelectorAll('.toggle-password').forEach((button) => {
+  button.addEventListener('click', () => {
+    const targetId = button.getAttribute('data-target');
+    const input = document.getElementById(targetId);
+    const isPassword = input.type === 'password';
+
+    input.type = isPassword ? 'text' : 'password';
+    button.textContent = isPassword ? 'Ocultar' : 'Mostrar';
+    button.setAttribute('aria-label', isPassword ? 'Ocultar senha' : 'Mostrar senha');
+  });
 });

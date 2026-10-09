@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 768" role="img">
+  <defs>
+    <linearGradient id="bubble" x1="0.12" y1="0.08" x2="0.88" y2="0.84">
+      <stop offset="0" stop-color="#FE3C53"/>
+      <stop offset="0.56" stop-color="#FE422E"/>
+      <stop offset="1" stop-color="#FF944A"/>
+    </linearGradient>
+    <linearGradient id="message" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FE3C53"/>
+      <stop offset="1" stop-color="#FF944A"/>
+    </linearGradient>
+  </defs>
+  <path
+    fill="url(#bubble)"
+    d="M258 239 294 190c16-18 38-27 68-27h163c67 0 113 44 113 112v106c0 68-45 113-113 113H276l-39 83c-7 15-24 12-21-5l22-143c-37-8-59-33-59-70v-29c0-34 21-55 58-55Z"
+  />
+  <path
+    fill="#11061E"
+    d="M258 239h252c28 0 47 19 47 47v97c0 28-19 47-47 47H280c-13 0-23 5-31 15l-4 5 13-48c-15-8-23-21-23-39v-77c0-29 8-47 23-47Z"
+  />
+  <circle cx="137" cy="365" r="24" fill="#FE3C53"/>
+  <rect x="176" y="272" width="153" height="46" rx="23" fill="url(#message)"/>
+  <rect x="360" y="282" width="150" height="29" rx="15" fill="#F6F4F1" opacity=".78"/>
+  <rect x="357" y="331" width="118" height="29" rx="15" fill="#F6F4F1" opacity=".78"/>
+  <rect x="356" y="379" width="138" height="29" rx="15" fill="#F6F4F1" opacity=".78"/>
+  <rect x="176" y="341" width="143" height="47" rx="24" fill="url(#message)"/>
+</svg>

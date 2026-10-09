@@ -1,5 +1,6 @@
 const axios = require('axios');
 const prompt = require('../../ia/prompt');
+const baseConhecimento = require('../../ia/base_conhecimento.json');
 
 // Responsavel por toda a comunicacao com a API de IA externa
 module.exports = {
@@ -12,7 +13,10 @@ module.exports = {
     }
 
     const mensagens = [
-      { role: 'system', content: prompt.SYSTEM_PROMPT },
+      {
+        role: 'system',
+        content: `${prompt.SYSTEM_PROMPT}\n\nBase de conhecimento de referência (problemas, sintomas, causas e procedimentos):\n${JSON.stringify(baseConhecimento)}\n\nUse a base como apoio, não como diagnóstico definitivo. Considere os dados informados pelo usuário e pela coleta técnica, faça perguntas quando necessário e recomende somente procedimentos seguros e compatíveis com as políticas da organização.`,
+      },
       { role: 'user', content: `Titulo: ${titulo}\nDescricao: ${descricao}` },
       ...historico.map(h => ({
         role: h.autor === 'ia' ? 'assistant' : 'user',

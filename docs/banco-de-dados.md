@@ -11,6 +11,8 @@ usuarios
           └── historico_chamado
 
 categorias (tabela auxiliar)
+
+solicitacoes_contato (mensagens enviadas pela página Fale conosco)
 ```
 
 Ver o schema completo em `backend/database/schema.sql`.
@@ -24,3 +26,7 @@ Ver o schema completo em `backend/database/schema.sql`.
 - **diagnosticos** — resultado estruturado do diagnóstico da IA.
 - **relatorios** — relatório final gerado para o chamado.
 - **historico_chamado** — log de mudanças de status.
+- **solicitacoes_contato** — mensagens públicas recebidas pelo formulário Fale conosco.
+
+Para aplicar a tabela em um banco já existente, execute
+`backend/database/migrations/001_solicitacoes_contato.sql`.

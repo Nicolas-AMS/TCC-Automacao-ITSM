@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="assets/logo-itsm.svg">
+  <title>Fale conosco - ITSM Service Desk</title>
+  <script src="js/auth.js?v=20261008-nav-pattern"></script>
+  <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css?v=20261008-nav-pattern">
+  <link rel="stylesheet" href="css/contato.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg site-navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand site-brand" href="index.html" aria-label="ITSM Service Desk - Início">
+        <img src="assets/logo-itsm.svg" alt="">
+        <span>ITSM Service Desk</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navigation" aria-controls="main-navigation" aria-expanded="false" aria-label="Abrir ou fechar navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="main-navigation">
+        <ul class="navbar-nav site-nav-links me-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+          
+        </ul>
+        <div class="site-nav-actions">
+          <a class="site-sign-in" href="login.html">Entrar</a>
+          <a class="site-cta" href="fale-conosco.html" aria-current="page">Fale conosco</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="contact-hero">
+      <div class="contact-layout">
+        <form id="form-contato" class="contact-form">
+          <span class="section-kicker">ESTAMOS AQUI PARA AJUDAR</span>
+          <h1>Fale com nossa equipe.</h1>
+          <p class="contact-intro">Conte como podemos ajudar. Nossa equipe vai receber sua mensagem e poderá retornar pelo e-mail informado.</p>
+
+          <label for="nome">Nome completo <span>*</span></label>
+          <input id="nome" name="nome" type="text" autocomplete="name" maxlength="150" placeholder="Seu nome" required>
+
+          <label for="email">E-mail <span>*</span></label>
+          <input id="email" name="email" type="email" autocomplete="email" maxlength="150" placeholder="voce@empresa.com" required>
+
+          <div class="contact-field-row">
+            <div>
+              <label for="telefone">Telefone</label>
+              <input id="telefone" name="telefone" type="tel" autocomplete="tel" maxlength="30" placeholder="(00) 00000-0000">
+            </div>
+            <div>
+              <label for="empresa">Empresa ou equipe</label>
+              <input id="empresa" name="empresa" type="text" autocomplete="organization" maxlength="150" placeholder="Onde você trabalha">
+            </div>
+          </div>
+
+          <label for="assunto">Como podemos ajudar? <span>*</span></label>
+          <select id="assunto" name="assunto" required>
+            <option value="" disabled selected>Selecione um assunto</option>
+            <option value="Acesso e conta">Acesso e conta</option>
+            <option value="Computador e equipamentos">Computador e equipamentos</option>
+            <option value="Sistemas e aplicativos">Sistemas e aplicativos</option>
+            <option value="Rede e conectividade">Rede e conectividade</option>
+            <option value="Dúvida ou outro assunto">Dúvida ou outro assunto</option>
+          </select>
+
+          <label for="mensagem">Mensagem <span>*</span></label>
+          <textarea id="mensagem" name="mensagem" rows="4" maxlength="3000" placeholder="Descreva sua dúvida ou solicitação..." required></textarea>
+
+          <button id="btn-enviar-contato" type="submit" class="contact-submit">Enviar mensagem <span aria-hidden="true">→</span></button>
+          <p class="contact-required">Os campos com asterisco (*) são obrigatórios.</p>
+          <p id="status-contato" class="contact-status" role="status" aria-live="polite"></p>
+        </form>
+
+        <aside class="contact-resources" aria-label="Recursos de atendimento">
+          <span class="contact-eyebrow">CENTRAL DE ATENDIMENTO</span>
+          <h2>Encontre o caminho certo para resolver.</h2>
+          <p class="contact-resources-intro">Veja as opções disponíveis para obter ajuda com sua solicitação.</p>
+          <div class="contact-resource">
+            <span class="contact-resource-icon" aria-hidden="true">✦</span>
+            <div><h3>Abra um chamado</h3><p>Entre na sua conta para registrar uma solicitação técnica e acompanhar o atendimento.</p><a href="chamado.html">Acessar chamados <span aria-hidden="true">→</span></a></div>
+          </div>
+          <div class="contact-resource">
+            <span class="contact-resource-icon" aria-hidden="true">✓</span>
+            <div><h3>Acompanhe suas solicitações</h3><p>Consulte os chamados já registrados e veja o status de cada atendimento.</p><a href="chamados.html">Ver meus chamados <span aria-hidden="true">→</span></a></div>
+          </div>
+          <div class="contact-resource">
+            <span class="contact-resource-icon" aria-hidden="true">?</span>
+            <div><h3>Precisa de uma conta?</h3><p>Crie seu acesso para abrir chamados e acompanhar as respostas da equipe.</p><a href="cadastro.html">Criar uma conta <span aria-hidden="true">→</span></a></div>
+          </div>
+          <div class="contact-response-note"><span class="status-dot"></span><span>Esta mensagem de contato não substitui um chamado técnico.</span></div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/contato.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

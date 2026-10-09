@@ -2,29 +2,52 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="assets/logo-itsm.svg">
   <title>Relatório - ITSM</title>
-  <link rel="stylesheet" href="css/style.css">
+  <script src="js/auth.js?v=20261008-nav-pattern"></script>
+  <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css?v=20261008-nav-pattern">
 </head>
 <body>
-  <main class="container">
-    <h1>Relatório de diagnóstico</h1>
-    <div id="relatorio" class="card"></div>
-    <button id="btn-abrir-ticket" class="btn">Confirmar abertura de chamado</button>
+  <nav class="navbar navbar-expand-lg site-navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand site-brand" href="index.html" aria-label="ITSM Service Desk - Início"><img src="assets/logo-itsm.svg" alt=""><span>ITSM Service Desk</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navigation" aria-controls="main-navigation" aria-expanded="false" aria-label="Abrir ou fechar navegação"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="main-navigation">
+        <ul class="navbar-nav site-nav-links me-auto">
+          <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="chamados.html">Meus chamados</a></li>
+          <li class="nav-item"><a class="nav-link" href="diagnostico.html">Diagnóstico</a></li>
+        </ul>
+        <div class="site-nav-actions"><a class="site-sign-in" href="index.html">Página inicial</a><a class="site-cta" href="fale-conosco.html">Fale conosco</a></div>
+      </div>
+    </div>
+  </nav>
+  <main class="workspace-main">
+    <section class="workspace-heading"><div><span class="section-kicker">RESUMO DO ATENDIMENTO</span><h1>Seu diagnóstico está pronto.</h1><p>Confira as informações organizadas e confirme para registrar o chamado.</p></div></section>
+    <section class="report-panel">
+      <div class="report-panel-heading"><span class="report-check">✓</span><div><h2>Resumo do diagnóstico</h2><p>Revise os dados antes de continuar.</p></div></div>
+      <div id="relatorio" class="card report-card"></div>
+      <button id="btn-abrir-ticket" class="home-button home-button-primary">Confirmar e abrir chamado <span aria-hidden="true">→</span></button>
+    </section>
   </main>
   <script src="js/api.js"></script>
   <script>
-    // Preenche o relatorio a partir do que foi salvo pelo diagnostico.js
-    const dados = JSON.parse(localStorage.getItem('ultimoDiagnostico') || '{}');
-    document.getElementById('relatorio').innerHTML = `
-      <p><strong>Categoria:</strong> ${dados.categoria || '-'}</p>
-      <p><strong>Prioridade:</strong> ${dados.prioridade || '-'}</p>
-      <p><strong>Resumo:</strong> ${dados.resumo || '-'}</p>
-    `;
-    document.getElementById('btn-abrir-ticket').addEventListener('click', async () => {
-      await api.post('/chamados', dados);
-      alert('Chamado criado com sucesso!');
-      window.location.href = 'chamados.html';
-    });
+    if (exigirLogin()) {
+      const dados = JSON.parse(localStorage.getItem('ultimoDiagnostico') || '{}');
+      document.getElementById('relatorio').innerHTML = `
+        <p><strong>Categoria:</strong> ${dados.categoria || '-'}</p>
+        <p><strong>Prioridade:</strong> ${dados.prioridade || '-'}</p>
+        <p><strong>Resumo:</strong> ${dados.resumo || '-'}</p>
+      `;
+      document.getElementById('btn-abrir-ticket').addEventListener('click', async () => {
+        await api.post('/chamados', dados);
+        alert('Chamado criado com sucesso!');
+        window.location.href = 'chamados.html';
+      });
+    }
   </script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

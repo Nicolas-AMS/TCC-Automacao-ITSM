@@ -1,1 +1,64 @@
-#tabela-chamados thead { background: #eef2f7; }
+#tabela-chamados {
+  width: 100%;
+  margin: 0;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+#tabela-chamados thead { background: #f7f2f5; }
+#tabela-chamados th {
+  padding: 13px 16px;
+  color: #766a78;
+  border-bottom: 1px solid rgba(52, 26, 54, 0.12);
+  font-size: 0.7rem;
+  font-weight: 750;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+#tabela-chamados td {
+  padding: 16px;
+  border-bottom: 1px solid rgba(52, 26, 54, 0.09);
+  color: var(--color-ink);
+  font-size: 0.86rem;
+}
+#tabela-chamados tbody tr:last-child td { border-bottom: 0; }
+#tabela-chamados tbody tr:hover { background: rgba(255, 148, 74, 0.08); }
+#tabela-chamados .ticket-empty {
+  padding: 42px 16px;
+  color: #766a78;
+  text-align: center;
+}
+.ticket-list-panel {
+  overflow: hidden;
+  border: 1px solid rgba(52, 26, 54, 0.1);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 12px 34px rgba(52, 26, 54, 0.05);
+}
+.ticket-list-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 24px 18px;
+}
+.ticket-list-heading h2 {
+  margin: 0;
+  color: var(--color-ink);
+  font-size: 1.08rem;
+  font-weight: 750;
+}
+.ticket-list-heading p {
+  margin: 5px 0 0;
+  color: #766a78;
+  font-size: 0.78rem;
+}
+.ticket-list-mark {
+  color: var(--color-primary-hover);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+@media (max-width: 640px) {
+  #tabela-chamados { min-width: 650px; }
+  .ticket-list-heading { padding: 18px 16px 14px; }
+}

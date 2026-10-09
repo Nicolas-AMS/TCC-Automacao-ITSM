@@ -12,6 +12,11 @@ const api = {
         ...(options.headers || {}),
       },
     });
+    if (res.status === 401 && !path.startsWith('/auth/')) {
+      localStorage.removeItem('token');
+      sessionStorage.setItem('paginaAposLogin', window.location.pathname.split('/').pop());
+      window.location.replace('login.html');
+    }
     if (!res.ok) {
       const erro = await res.json().catch(() => ({}));
       throw new Error(erro.mensagem || `Erro na requisicao (${res.status})`);

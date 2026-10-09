@@ -5,7 +5,13 @@ const db = require('../database/connection');
 module.exports = {
   async login(req, res, next) {
     try {
-      const { email, senha } = req.body;
+      const email = String(req.body?.email || '').trim();
+      const senha = String(req.body?.senha || '');
+
+      if (!email || !senha) {
+        return res.status(400).json({ mensagem: 'E-mail e senha são obrigatórios' });
+      }
+
       const [rows] = await db.query('SELECT * FROM usuarios WHERE email = ?', [email]);
       const usuario = rows[0];
 
@@ -19,56 +25,49 @@ module.exports = {
         { expiresIn: '8h' }
       );
 
-      res.json({ token });
+      return res.json({ token });
     } catch (err) {
-      next(err);
+      return next(err);
     }
   },
 
   async criar(req, res, next) {
     try {
-      const { nome, email, senha } = req.body;
+      const nome = String(req.body?.nome || '').trim();
+      const email = String(req.body?.email || '').trim();
+      const senha = String(req.body?.senha || '');
+      const confirmarSenha = String(req.body?.confirmarSenha || '');
+
+      if (!nome || !email || !senha) {
+        return res.status(400).json({ mensagem: 'Todos os campos são obrigatórios' });
+      }
+
+      if (senha !== confirmarSenha) {
+        return res.status(400).json({ mensagem: 'As senhas não conferem.' });
+      }
+
       const senhaHash = await bcrypt.hash(senha, 10);
       const [resultado] = await db.query(
         'INSERT INTO usuarios (nome, email, senha_hash) VALUES (?, ?, ?)',
         [nome, email, senhaHash]
       );
-      res.status(201).json({ id: resultado.insertId, nome, email });
+
+      return res.status(201).json({ id: resultado.insertId, nome, email });
     } catch (err) {
-      next(err);
+      if (err.code === 'ER_DUP_ENTRY') {
+        return res.status(400).json({ mensagem: 'Este e-mail já está cadastrado.' });
+      }
+
+      return next(err);
     }
   },
 
   async listar(req, res, next) {
     try {
       const [rows] = await db.query('SELECT id, nome, email, criado_em FROM usuarios');
-      res.json(rows);
+      return res.json(rows);
     } catch (err) {
-      next(err);
+      return next(err);
     }
   },
-    async criar(req, res, next) {
-    try {
-      const { nome, email, senha } = req.body;
-      
-      // Validação básica se os dados vieram na requisição
-      if (!nome || !email || !senha) {
-        return res.status(400).json({ mensagem: 'Todos os campos são obrigatórios' });
-      }
-
-      const senhaHash = await bcrypt.hash(senha, 10);
-      const [resultado] = await db.query(
-        'INSERT INTO usuarios (nome, email, senha_hash) VALUES (?, ?, ?)',
-        [nome, email, senhaHash]
-      );
-      res.status(201).json({ id: resultado.insertId, nome, email });
-    } catch (err) {
-      // Captura erro de e-mail duplicado no banco de dados
-      if (err.code === 'ER_DUP_ENTRY') {
-        return res.status(400).json({ mensagem: 'Este e-mail já está cadastrado.' });
-      }
-      next(err);
-    }
-  },
-
 };
